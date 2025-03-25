@@ -8,7 +8,7 @@ sudo apt update
 sudo apt install certbot python3-certbot-nginx
 ```
 
-- Set Nginx servie
+- Setup Nginx service 
 ```bash
 sudo vim /etc/nginx/sites-available/csmudemo.stima.tech
 ```
