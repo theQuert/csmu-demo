@@ -19,7 +19,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
         rehypePlugins={[rehypeKatex]}
         components={{
           // 自定義代碼塊
-          code({ node, className, children, ...props }) {
+          code({ className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || '');
             return (
               <pre className={`${match ? `language-${match[1]}` : ''} p-4 overflow-x-auto rounded-lg my-4`}>
@@ -30,7 +30,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             );
           },
           // 自定義連結
-          a({ node, children, href, ...props }) {
+          a({ children, href, ...props }) {
             if (href && (href.startsWith('http') || href.startsWith('https'))) {
               return (
                 <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
@@ -45,9 +45,11 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
             );
           },
           // 自定義圖片
-          img({ node, ...props }) {
+          img({ src, ...props }) {
             return (
               <img 
+                src={src}
+                alt={props.alt || '文章圖片'} 
                 {...props} 
                 className="mx-auto my-4 rounded-lg shadow-md max-w-full h-auto" 
                 loading="lazy"

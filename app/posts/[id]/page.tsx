@@ -3,16 +3,12 @@ import MarkdownRenderer from '../../components/MarkdownRenderer';
 import TagList from '../../components/TagList';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 // 生成靜態路徑
 export async function generateStaticParams() {
   const paths = getAllPostIds();
   return paths;
-}
-
-// 專門為處理參數的 middleware 函數
-async function getParams(params: { id: string }) {
-  return params;
 }
 
 // 格式化日期
@@ -25,11 +21,14 @@ const formatDate = (dateString: string) => {
   }).format(date);
 };
 
-export default async function Post({ params }: { params: { id: string } }) {
+// 定義頁面參數類型
+type Props = {
+  params: { id: string }
+}
+
+export default async function Post({ params }: Props) {
   try {
-    // 等待參數的解析
-    const resolvedParams = await getParams(params);
-    const postData = await getPostData(resolvedParams.id);
+    const postData = await getPostData(params.id);
     
     return (
       <article className="max-w-4xl mx-auto">

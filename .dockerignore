@@ -1,0 +1,48 @@
+# 開發環境文件
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# 版本控制
+.git
+.gitignore
+.github
+
+# 建置暫存目錄
+.next
+out
+
+# 本地環境
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE 文件
+.idea
+.vscode
+*.swp
+*.swo
+
+# 系統文件
+.DS_Store
+Thumbs.db
+
+# 文檔和說明文件
+README.md
+*.md
+!DOCKER-DEPLOY.md
+
+# 測試文件
+__tests__
+*.test.js
+*.spec.js
+
+# 其他
+*.log
+.cursor
+Dockerfile
+docker-compose.yml
+.dockerignore

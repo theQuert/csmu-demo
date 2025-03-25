@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "6350:3000"
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    # 如果需要持久化資料，可以添加以下設定
+    # volumes:
+    #   - ./content:/app/content
