@@ -46,9 +46,9 @@ server {
 
 - Reload Nginx and certificate
 ```bash
-sudo certbot --nginx -d csmudemo.stima.tech
-# uncomment the ssl settings in nginx config
 sudo ln -s /etc/nginx/sites-available/testing.stima.tech /etc/nginx/sites-enabled/
+sudo certbot --nginx -d testing.stima.tech
+# uncomment the ssl settings in nginx config
 sudo nginx -t
 sudo systemctl reload nginx
 ```
