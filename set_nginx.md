@@ -13,7 +13,7 @@ sudo apt install certbot python3-certbot-nginx
 sudo vim /etc/nginx/sites-available/csmudemo.stima.tech
 ```
 
-```json
+```
 server {
     server_name csmudemo.stima.tech;
 
